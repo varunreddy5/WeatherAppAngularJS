@@ -1,0 +1,9 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">{{convertToDate({weatherDate:weatherObject.dt}) | date:'MMM d,y'}}</h3>
+    </div>
+    <div class="panel-body">
+        Day Time Temperature:{{convertToStandard({degreesKelvin:weatherObject.temp.day})}} &deg;C<br>
+        Night Time Temperature:{{convertToStandard({degreesKelvin:weatherObject.temp.night})}} &deg;C
+    </div>
+</div>

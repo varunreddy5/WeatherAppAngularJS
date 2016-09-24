@@ -6,18 +6,11 @@ Forecast for {{city}}
 Days: <a href="#/forecast/3" ng-class="{'bg-primary':days==='3'}">3</a> | <a href="#/forecast/5" ng-class="{'bg-primary':days==='5'}">5</a> | <a href="#/forecast/7" ng-class="{'bg-primary':days==='7'}">7</a>
 <hr/>
 
-<div ng-repeat="w in weatherResult.list">
-    <div class="row">
-        <div class="col-md-12">
-             <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <h3 class="panel-title">{{convertDate(w.dt)|date:'MMM d,y'}}</h3>
-                </div>
-                <div class="panel-body">
-                    DayTime Temperature: {{convertToCelsius(w.temp.day)}}&deg;C<br>
-                    NightTime Temperature: {{convertToCelsius(w.temp.night)}}&deg;C
-                </div>
-            </div>
+<div >
+    <div class="row" >
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" ng-repeat="w in weatherResult.list">
+
+        <weather-report weather-object="w" convert-to-standard="convertToCelsius(degreesKelvin)" convert-to-date="convertDate(weatherDate)"></weather-report>
         </div>
     </div>
 </div>
