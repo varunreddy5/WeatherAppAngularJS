@@ -38,7 +38,7 @@ weatherApp.controller('forecastController',['$scope','$resource','$routeParams',
     
     $scope.weatherAPI=$resource("//api.openweathermap.org/data/2.5/forecast/daily",{callback:"JSON_CALLBACK"},{get:{method:"JSONP"}});
     $scope.weatherResult=$scope.weatherAPI.get({q:$scope.city,cnt:$scope.days,appid:'19d90ce3a6357882c338cf49a76a6fec'});
-    
+    console.log($scope.weatherResult);
     
     $scope.convertToCelsius=function(degreeK){
         return Math.round(degreeK-273.15);
@@ -51,15 +51,3 @@ weatherApp.controller('forecastController',['$scope','$resource','$routeParams',
     }
 
 }]);
-//DIRECTIVES
-weatherApp.directive('weatherReport',function(){
-    return {
-        templateUrl:'directives/weatherresults.html',
-        replace:true,
-        scope:{
-            weatherObject:'=',
-            convertToStandard:'&',
-            convertToDate:'&'
-        }
-    }
-})
